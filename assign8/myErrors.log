@@ -1,0 +1,12 @@
+Cannot connect to MySQL: PDOException: SQLSTATE[HY000] [1045] Access denied for user 'murrconn'@'localhost' (using password: YES) in C:\xampp\htdocs\assign8\includes\Member.class:79
+Stack trace:
+#0 C:\xampp\htdocs\assign8\includes\Member.class(79): PDO->__construct('mysql:host=loca...', 'murrconn', 'Yoloswag11!!!!')
+#1 C:\xampp\htdocs\assign8\content\login.php(44): Member->authenticate('es', 'smile')
+#2 C:\xampp\htdocs\assign8\index.php(20): include_once('C:\\xampp\\htdocs...')
+#3 {main}
+Cannot connect to MySQL: PDOException: SQLSTATE[HY000] [1045] Access denied for user 'eissae'@'localhost' (using password: YES) in C:\xampp\htdocs\assign8\includes\Member.class:79
+Stack trace:
+#0 C:\xampp\htdocs\assign8\includes\Member.class(79): PDO->__construct('mysql:host=loca...', 'eissae', '#SgtA4d*UPw')
+#1 C:\xampp\htdocs\assign8\content\login.php(44): Member->authenticate('ellen', 'holehop')
+#2 C:\xampp\htdocs\assign8\index.php(20): include_once('C:\\xampp\\htdocs...')
+#3 {main}

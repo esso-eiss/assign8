@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<!--
+Author: Esraa Eissa
+File: index.html
+Creation date: 09-Augest-2019
+Updated:
+Version: 1.1
+Purpose:
+Citations: https://github.com/ebajcar/syst10199/blob/exercises/projects/Phase%20II%20notes%20part%20B.md
+Description: Home page of the Gaming Cats' Clubhouse. This webpage will provide the user with ability to
+             open one of the pages with games, provide a welcome message and some details about
+						 memberships.
+-->
+<html lang="en">
+<head>
+<title>Gaming Cats' Clubhouse</title>
+<meta charset="UTF-8">
+ <!-- Link to the layout stylesheet. Layout of the whole page including
+nav, main and aside containers -->
+<link rel="stylesheet" href="css/grid.css">
+<link rel="stylesheet" href="css/cats.css">
+<link rel="stylesheet" href="css/template.css">
+<link href="http://bajcar.dev.fast.sheridanc.on.ca/syst10199/checklists/css/grid_2019_6_4.css" rel="stylesheet">
+<!-- Page specific CSS obtained by php -->
+<link rel="stylesheet" href="">
+
+</head>
+
+<body>
+	<header>
+		<h1>Gaming Cats' Clubhouse</h1>
+	</header>
+
+  <?php
+    include ('includes/header.php');
+    $members = (isset($_GET['members'])) ? (bool) $_GET['members'] : false;
+    if ($members === true) {
+        require 'includes/nav_members.php';
+    }  //members' navigation
+    else {
+        require 'includes/nav_public.php';
+    }  //non-members' navigation
+
+    if (isset($_GET['page'])) {
+        $includepage = $_GET['page'];
+        include_once ( $includepage );
+        // will be replaced by include_once ( 'content/whateverfileyouspecify.php' );
+    } else {
+        //home page content
+        require_once ( 'content/welcome.php' );
+    }
+    include ('includes/footer.php');
+?>
+	<!-- Page layout will be handled by a flexbox. Design in CSS -->
+	<div class="flex-container"><!-- Navigation of home page to be hidden with CSS  -->
+<nav>
+	<!-- Using a table to position links underneath eachother, may change -->
+	<table>
+		<!-- Navigation links to register and log in -->
+		<!-- DISCLAIMER!!! Placing <a> inside a <button> gives validation error,
+		     following instructions of Phase I -->
+		<tr><td><button><a href="" class="active">Home</a></button></td></tr>
+		<tr><td><button><a href="">Members site</a></button></td></tr>
+		<tr><td><button><a href="">Become a member</a></button></td></tr>
+	</table>
+</nav><main>
+	<h2>Welcome!</h2>
+	<!-- Welocome message to visitors -->
+	<p>Hi there! Welcome to the Gaming Cats' Clubhouse where you can enjoy some of your favourite
+		online games. In order to play the games, please sign in or register.<br><br>
+		Our website offers the following games to our users:
+	</p>
+	<ul>
+		<li>Tic Cat Toe</li>
+		<li>Cat Paper Scissors Lizard Spock</li>
+		<li>Catsino Craps</li>
+	</ul>
+	<p>With much more to come soon!</p>
+	<img class="cat one" src="images/cat_curled_up_blue.gif" alt="Blue cat curled up">
+	<img class="cat two" src="images/cat_reaching_orange.gif" alt="Orange cat reaching up">
+	<img class="cat three" src="images/cat_sitting_back_orange.gif" alt="Orange cat sitting down">
+	<img class="cat four" src="images/cat_sitting_front_blue.gif" alt="Blue cat sitting down">
+	<img class="cat five" src="images/cat_streching_blue.gif" alt="Blue cat stretching">
+	<img class="cat six" src="images/cat_walking_blue.gif" alt="Blue cat walking">
+</main>
+<aside>
+	<!-- Latest news & members info-->
+	<ul>
+		<li><strong>Latest News</strong></li>
+		<li>New games coming soon! Including Number Scrabble and Sudoku.</li>
+		<li>Follow the link to suggest more games we should add</li>
+		<li><a href="">Click me!</a></li>
+	</ul>
+	<ul>
+		<li><strong>Members information</strong></li>
+		<li>Check your email for out latest newsletter</li>
+		<li>If you're not a member but consider signing up, follow the link below</li>
+		<li><a href="">Sign up!</a></li>
+	</ul>
+</aside></div>
+	<footer>
+		<address>
+		eissa, SYST10199 Web Programming, Summer 2019 @ Sheridan College
+		</address>
+	</footer>
+</body>
+
+</html>
